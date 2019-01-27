@@ -36,10 +36,12 @@ public class AOESkill : SkillEffect
             
             yield return null;
         }
-
+        Debug.Log("AOE!!!");
         particleGO = Instantiate(particle);
         particleGO.transform.position = go.transform.position;
-        yield return new WaitForSeconds(2 * lvl);
+        yield return new WaitForSeconds(4 + 2 * lvl);
         Destroy(particleGO);
+        Destroy(go);
+        Debug.Log("AOE!!!");
     }
 }
