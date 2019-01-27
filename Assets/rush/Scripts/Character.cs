@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
     public GameObject lvlupPrefab;
     public Stats stats;
     
+    public LayerMask EnemyMask;
+    public LayerMask FloorMask;
     
     void Awake()
     {
@@ -38,7 +40,7 @@ public class Character : MonoBehaviour
             exp = exp - stats.xpToNext;
             if (exp < 0) exp = 0;
             if (lvlupPrefab != null)
-                Instantiate(lvlupPrefab, transform.position, Quaternion.identity);
+                Instantiate(lvlupPrefab, transform.position + Vector3.up, Quaternion.identity, transform);
         }
 
         if (hud != null)

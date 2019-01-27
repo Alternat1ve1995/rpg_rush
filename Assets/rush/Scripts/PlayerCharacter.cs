@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class PlayerCharacter : Character
 {
-    public LayerMask EnemyMask;
-    public LayerMask FloorMask;
-    
-
     private Coroutine attackingCoroutine;
 
     private IEnumerator Start()
@@ -98,7 +94,7 @@ public class PlayerCharacter : Character
                 animator.SetTrigger("Attack");
                 yield return new WaitForSeconds(0.2f);
                 float damage = GetDamage();
-                Debug.Log(damage);
+//                Debug.Log(damage);
                 target.TakeDamage(damage);
             }
             if (target.hp <= 0)

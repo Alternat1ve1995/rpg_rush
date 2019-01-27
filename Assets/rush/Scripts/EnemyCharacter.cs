@@ -62,7 +62,7 @@ public class EnemyCharacter : Character
                 animator.SetTrigger("Attack");
                 yield return new WaitForSeconds(0.4f);
                 float damage = GetDamage();
-                Debug.Log(damage);
+//                Debug.Log(damage);
                 target.TakeDamage(damage);
             }
             if (target.hp <= 0)
