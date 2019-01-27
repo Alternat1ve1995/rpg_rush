@@ -11,7 +11,8 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     public SkillEffect skillEffect;
 
     public int lvl;
-    public int tier;
+    private int skillXP = 0;
+    public int tier = 0;
     public bool isLooked = true;
 
     private Image img;
@@ -41,6 +42,8 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         {
             img.color = Color.white;
         }
+        
+        tooltip.GetComponent<Text>().text = skillEffect.toolTip + "Lvl: " + lvl + " tier: " + tier;
     }
 
     public void  Unlock()
@@ -54,6 +57,18 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         if (skillEffect != null && !isLooked)
         {
             skillEffect.ApplyEffect(you, target, point, lvl);
+            skillXP++;
+            if (skillXP > 10)
+            {
+                lvl++;
+                skillXP = 0;
+            }
+
+            if (lvl%6 > 0)
+            {
+                tier++;
+            }
+
         }
     }
 

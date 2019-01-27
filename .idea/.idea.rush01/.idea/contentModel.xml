@@ -25,6 +25,7 @@
             <e p="EnemyCharacter.cs" t="Include" />
             <e p="HealingSkill.cs" t="Include" />
             <e p="HUDController.cs" t="Include" />
+            <e p="Inventory.cs" t="Include" />
             <e p="PlayerCharacter.cs" t="Include" />
             <e p="Skill.cs" t="Include" />
             <e p="SkillEffect.cs" t="Include" />
