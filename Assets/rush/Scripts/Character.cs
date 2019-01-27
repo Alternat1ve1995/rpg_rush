@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
     public GameObject lvlupPrefab;
     public Stats stats;
     
+    public LayerMask EnemyMask;
+    public LayerMask FloorMask;
     
     void Awake()
     {

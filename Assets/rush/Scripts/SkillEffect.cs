@@ -11,8 +11,7 @@ public class SkillEffect : MonoBehaviour
     public Sprite sprite;
     public GameObject particle;
     
-    public void ApplyEffect(Character you, Character target, Vector3 point, int lvl)
+    public virtual void ApplyEffect(Character you, Character target, Vector3 point, int lvl)
     {
-        //
     }
 }

@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class PlayerCharacter : Character
 {
-    public LayerMask EnemyMask;
-    public LayerMask FloorMask;
-    
-
     private Coroutine attackingCoroutine;
 
     private IEnumerator Start()
