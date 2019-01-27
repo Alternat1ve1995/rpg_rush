@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    //public delegate void SkillFunc(GameObject you, GameObject target, Vector3 point);
     public enum SkillType {AOE, AURA, DIRECT}
     
-    //public SkillFunc skill;
     public SkillEffect skillEffect;
 
     public int lvl;
@@ -19,6 +17,8 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Image img;
     private bool isTooltip = false;
     private Rect rect;
+
+    private Vector3 startPosition;
 
     public GameObject tooltip;
     
@@ -53,6 +53,27 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         isTooltip = false;
         tooltip.SetActive((false));
     }
+    
+    public void OnBeginDrag (PointerEventData eventData)
+    {
+//        itemBeingDragged = gameObject;
+//        startPosition = transform.position;
+//        startParent = transform.parent;
+        startPosition = transform.position;
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+    
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.position = Input.mousePosition;
+    }
 
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //transform.position = startPosition;
+        transform.position = transform.parent.position;
+
+    }
    
 }

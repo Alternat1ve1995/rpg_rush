@@ -13,15 +13,25 @@ public class AOESkill : SkillEffect
     
     public override  void ApplyEffect(Character you, Character target, Vector3 point, int lvl)
     {
-        if (targetSpherePrefab)
+        if (targetSpherePrefab != null)
             go = Instantiate(targetSpherePrefab);
 
         if (doCor == null)
-            doCor = StartCoroutine(Do(you, lvl));
+            doCor = StartCoroutine(Do(you, target, lvl));
+        else
+        {
+            if (particleGO != null)
+                Destroy(particleGO);
+            if (go != null)
+                Destroy(go);
+            StopCoroutine(doCor);
+            doCor = StartCoroutine(Do(you, target, lvl));
+            
+        }
     }
 
 
-    IEnumerator Do(Character you, int lvl)
+    IEnumerator Do(Character you,Character target, int lvl)
     {
         while (!Input.GetMouseButtonDown(0))
         {
@@ -36,12 +46,16 @@ public class AOESkill : SkillEffect
             
             yield return null;
         }
-        Debug.Log("AOE!!!");
+        //Debug.Log("AOE!!!");
         particleGO = Instantiate(particle);
         particleGO.transform.position = go.transform.position;
+        Destroy(go);
+        if (target != null)
+            if (Vector3.Distance(target.transform.position, particleGO.transform.position) <= 10)
+                target.TakeDamage(10 + lvl * 5);
         yield return new WaitForSeconds(4 + 2 * lvl);
         Destroy(particleGO);
-        Destroy(go);
-        Debug.Log("AOE!!!");
+        
+        Debug.Log("AOE End");
     }
 }

@@ -26,11 +26,15 @@ public class ArrowSkill : SkillEffect
         float startTime = Time.time;
         while (Time.time - startTime < 4 + lvl * 2)
         {
-            Vector3 dir = (target.transform.position - arrow.transform.position).normalized * Time.deltaTime * (100 + lvl*2);
-            arrow.transform.Translate(dir);
+            if (target != null)
+            {
+                Vector3 dir = (target.transform.position - arrow.transform.position).normalized * Time.deltaTime * (100 + lvl * 2);
+                arrow.transform.Translate(dir);
+            }
             
             yield return null;
         }
+        target.TakeDamage(10 + lvl * 5);
         Destroy(arrow);
         
     }
