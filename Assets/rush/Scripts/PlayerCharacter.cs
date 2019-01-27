@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter : Character
 {
@@ -68,6 +69,11 @@ public class PlayerCharacter : Character
                 StopCoroutine(attackingCoroutine);
             Move(hit);
         }
+    }
+
+    public void reloadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -157,6 +163,8 @@ public class PlayerCharacter : Character
             t += Time.deltaTime;
             yield return null;
         }
+
+        reloadScene();
     }
     
     
