@@ -52,11 +52,16 @@ public class Character : MonoBehaviour
 
     public float CalculateDamage(Stats a, Stats enemy)
     {
-        float hitChance = 75 + a.AGI - enemy.AGI;
-        if (Random.Range(0, 100) <= hitChance)
+        if (target != null)
         {
-            float basicD = Random.Range(a.minDamage, a.maxDamage);
-            return basicD * (1 - enemy.armor / 200);
+            float hitChance = 75 + a.AGI - enemy.AGI;
+            if (Random.Range(0, 100) <= hitChance)
+            {
+                float basicD = Random.Range(a.minDamage, a.maxDamage);
+                return basicD * (1 - enemy.armor / 200);
+            }
+            else
+                return 0;
         }
         else
             return 0;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealingSkill : SkillEffect
+public class BuffArmorSkill : SkillEffect
 {
     private GameObject particleGO;
 
@@ -31,9 +31,11 @@ public class HealingSkill : SkillEffect
         
         //Debug.Log("AOE!!!");
         particleGO = Instantiate(particle, you.transform.position, Quaternion.identity, you.transform);
-        
-                you.hp += (10 + lvl * 5);
-        yield return new WaitForSeconds(1 + 2 * lvl);
+        you.stats.armor += (10 + lvl * 5);
+        you.stats.Generate();
+        yield return new WaitForSeconds(10 + 2 * lvl);
+        you.stats.armor -= (10 + lvl * 5);
+        you.stats.Generate();
         Destroy(particleGO);
         
     }

@@ -47,8 +47,10 @@ public class AOESkill : SkillEffect
             yield return null;
         }
         //Debug.Log("AOE!!!");
+        
         particleGO = Instantiate(particle);
-        particleGO.transform.position = go.transform.position;
+        if (go != null)
+            particleGO.transform.position = go.transform.position;
         Destroy(go);
         if (target != null)
             if (Vector3.Distance(target.transform.position, particleGO.transform.position) <= 10)

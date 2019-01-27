@@ -18,6 +18,8 @@
             <e p="AOESkill.cs" t="Include" />
             <e p="AroundDamageSkill.cs" t="Include" />
             <e p="ArrowSkill.cs" t="Include" />
+            <e p="BuffArmorSkill.cs" t="Include" />
+            <e p="BuffSkill.cs" t="Include" />
             <e p="CameraFollow.cs" t="Include" />
             <e p="Character.cs" t="Include" />
             <e p="EnemyCharacter.cs" t="Include" />
