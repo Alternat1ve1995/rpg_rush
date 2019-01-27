@@ -35,7 +35,6 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     {
         if (skillEffect != null)
         {
-            Debug.Log("Skill 0 have effect");
             skillEffect.ApplyEffect(you, target, point, lvl);
         }
     }

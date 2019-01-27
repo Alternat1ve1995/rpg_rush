@@ -16,10 +16,12 @@
         <e p="rush" t="Include">
           <e p="Scripts" t="Include">
             <e p="AOESkill.cs" t="Include" />
+            <e p="AroundDamageSkill.cs" t="Include" />
             <e p="ArrowSkill.cs" t="Include" />
             <e p="CameraFollow.cs" t="Include" />
             <e p="Character.cs" t="Include" />
             <e p="EnemyCharacter.cs" t="Include" />
+            <e p="HealingSkill.cs" t="Include" />
             <e p="HUDController.cs" t="Include" />
             <e p="PlayerCharacter.cs" t="Include" />
             <e p="Skill.cs" t="Include" />
