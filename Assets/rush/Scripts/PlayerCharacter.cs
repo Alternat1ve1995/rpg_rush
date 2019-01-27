@@ -29,6 +29,16 @@ public class PlayerCharacter : Character
         AnimateCharacter();
     }
 
+    public void LeveUp()
+    {
+        stats.SetLevel(stats.lvl + 5);
+        hp = stats.maxHP;
+        exp = exp - stats.xpToNext;
+        if (exp < 0) exp = 0;
+        if (lvlupPrefab != null)
+            Instantiate(lvlupPrefab, transform.position + Vector3.up, Quaternion.identity, transform);
+    }
+    
     void SetMoveTarget()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
