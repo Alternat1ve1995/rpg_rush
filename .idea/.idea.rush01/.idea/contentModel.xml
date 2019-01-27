@@ -30,6 +30,7 @@
             <e p="SkillEffect.cs" t="Include" />
             <e p="SkillSlot.cs" t="Include" />
             <e p="SkillsPanel.cs" t="Include" />
+            <e p="SkillsTree.cs" t="Include" />
             <e p="Spawner.cs" t="Include" />
             <e p="Stats.cs" t="Include" />
             <e p="StatsPanel.cs" t="Include" />

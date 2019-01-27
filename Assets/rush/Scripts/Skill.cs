@@ -12,7 +12,7 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
 
     public int lvl;
     public int tier;
-    public bool isLooked;
+    public bool isLooked = true;
 
     private Image img;
     private bool isTooltip = false;
@@ -30,10 +30,28 @@ public class Skill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         tooltip = transform.GetChild(0).gameObject;
         tooltip.GetComponent<Text>().text = skillEffect.toolTip;
     }
+
+    private void Update()
+    {
+        if (isLooked)
+        {
+            img.color = new Color(0.8f, 0.8f, 0.8f, 0.4f);
+        }
+        else
+        {
+            img.color = Color.white;
+        }
+    }
+
+    public void  Unlock()
+    {
+        isLooked = false;
+    }
+    
     
     public void ExecuteSkill(Character you, Character target, Vector3 point)
     {
-        if (skillEffect != null)
+        if (skillEffect != null && !isLooked)
         {
             skillEffect.ApplyEffect(you, target, point, lvl);
         }

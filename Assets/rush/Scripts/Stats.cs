@@ -13,6 +13,7 @@ public class Stats
     public int lvl;
     public int xpToNext;
     public int credit;
+    public int talentPoints;
     
     [HideInInspector]public int maxHP;
     [HideInInspector]public int minDamage;
@@ -33,6 +34,15 @@ public class Stats
         lvl += 1;
         xpToNext *= 2;
         credit += 5;
+        talentPoints += 5;
         Generate();
+    }
+
+    public void SetLevel(int toLvl)
+    {
+        while (lvl < toLvl)
+        {
+            LvlUP();
+        }
     }
 }
